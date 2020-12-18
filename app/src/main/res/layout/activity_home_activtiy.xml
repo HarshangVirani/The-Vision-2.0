@@ -1,61 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivtiy">
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+        <RelativeLayout
+            android:id="@+id/message_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:background="@color/dark_blue">
 
-            <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/dark_blue"
+            <ImageView
+                android:id="@+id/message_img"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:src="@drawable/ic_baseline_message_24"
-                android:autofillHints="@string/message"/>
+                android:layout_centerInParent="true"/>
+            <TextView
+                android:id="@+id/message_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/message_img"
+                android:text="@string/message"
+                android:layout_centerHorizontal="true"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace"/>
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/lidht_blue"
-                android:text="@string/battery"/>
+        </RelativeLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/lidht_blue"
-                android:text="@string/search"/>
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/dark_blue"
-                android:text="@string/study"/>
-
-        </LinearLayout>
+            android:background="@color/lidht_blue"
+            android:text="@string/battery"/>
 
     </LinearLayout>
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/lidht_blue"
+            android:text="@string/search"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/dark_blue"
+            android:text="@string/study"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

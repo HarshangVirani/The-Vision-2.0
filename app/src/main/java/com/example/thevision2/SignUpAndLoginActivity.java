@@ -43,7 +43,6 @@ public class SignUpAndLoginActivity extends AppCompatActivity{
     private String tag = "Activity";
     private String email,password = "";
     private FirebaseAuth mAuth;
-    private FirebaseUser user;
 
 
     @Override
@@ -52,14 +51,12 @@ public class SignUpAndLoginActivity extends AppCompatActivity{
         setContentView(R.layout.activity_sign_up_and_login);
 
         mAuth = FirebaseAuth.getInstance();
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        if(user == null){
-            Intent intent = new Intent(this,HomeActivtiy.class);
-            startActivity(intent);
-            finish();
-        }else {
+        if (mAuth.getCurrentUser() == null){
             stringText = "Click Upper part of your screen for Login and Down part of your screen for SignUp";
             textToSpeech();
+        }else{
+            finish();
+            startActivity(new Intent(SignUpAndLoginActivity.this,HomeActivtiy.class));
         }
 
         changeStatusBarColor();
@@ -205,6 +202,7 @@ public class SignUpAndLoginActivity extends AppCompatActivity{
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()){
                                         Intent intent = new Intent(SignUpAndLoginActivity.this,HomeActivtiy.class);
+                                       // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                         startActivity(intent);
                                         finish();
                                     }else {
