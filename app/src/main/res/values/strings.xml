@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">The Vision</string>
+
+    <string name="login">LOGIN</string>
+    <string name="signup">SIGNUP</string>
+    <string name="message">MESSAGE</string>
+    <string name="battery">BATTERY STATUS</string>
+    <string name="search">SEARCH</string>
+    <string name="study">STUDY</string>
+</resources>
