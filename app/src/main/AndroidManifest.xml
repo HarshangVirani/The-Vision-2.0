@@ -11,10 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheVision2">
-        <activity android:name=".Study.StudyActivity"></activity>
-        <activity android:name=".Search.SearchActivity" />
-        <activity android:name=".Battery.BatteryActivity" />
-        <activity android:name=".Messages.MessageActivity" />
+
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
@@ -25,14 +22,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".SignUpAndLoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
         <activity
             android:name=".HomeActivtiy"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
+        <activity android:name=".Study.StudyActivity"/>
+        <activity android:name=".Search.SearchActivity" />
+
+        <activity
+            android:name=".Battery.BatteryActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Messages.MessageActivity" />
     </application>
 
 </manifest>

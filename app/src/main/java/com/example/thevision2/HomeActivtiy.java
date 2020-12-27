@@ -142,7 +142,7 @@ public class HomeActivtiy extends AppCompatActivity {
 
     //Study
     private void setStudy(){
-        batteryStatus.setOnClickListener(new DoubleClick(new DoubleClickListener() {
+        study.setOnClickListener(new DoubleClick(new DoubleClickListener() {
             @Override
             public void onSingleClick(View view) {
                 stringText = "Study";
