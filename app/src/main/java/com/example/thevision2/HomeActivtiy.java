@@ -28,7 +28,6 @@ public class HomeActivtiy extends AppCompatActivity {
     private RelativeLayout messagesBod,batteryStatus,search,study;
     private TextToSpeech tts;
     private String stringText;
-    private Button btn;
     private Intent intent;
 
     @Override
@@ -154,6 +153,17 @@ public class HomeActivtiy extends AppCompatActivity {
                 startActivity(new Intent(HomeActivtiy.this, StudyActivity.class));
             }
         }));
+    }
+
+    //On go back
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        intent = new Intent(HomeActivtiy.this,SignOutAndExitActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     @Override
