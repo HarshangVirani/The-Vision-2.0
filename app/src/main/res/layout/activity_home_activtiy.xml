@@ -36,7 +36,8 @@
                 android:layout_centerHorizontal="true"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                android:fontFamily="monospace"/>
+                android:fontFamily="monospace"
+                android:textColor="@color/white"/>
 
         </RelativeLayout>
 
@@ -64,7 +65,8 @@
                 android:gravity="center"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                android:fontFamily="monospace"/>
+                android:fontFamily="monospace"
+                android:textColor="@color/white"/>
 
         </RelativeLayout>
 
@@ -99,7 +101,8 @@
                 android:layout_centerHorizontal="true"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                android:fontFamily="monospace"/>
+                android:fontFamily="monospace"
+                android:textColor="@color/white"/>
 
         </RelativeLayout>
 
@@ -126,7 +129,8 @@
                 android:layout_centerHorizontal="true"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                android:fontFamily="monospace"/>
+                android:fontFamily="monospace"
+                android:textColor="@color/white"/>
 
         </RelativeLayout>
 

@@ -14,12 +14,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Message;
 import android.util.Log;
-import android.widget.Toast;
-import com.example.thevision2.Messages.Adapter.MessageAdapter;
-import com.example.thevision2.Messages.Model.MessageModel;
 import com.example.thevision2.R;
-import com.littlemango.stacklayoutmanager.StackLayoutManager;
-import java.util.ArrayList;
 
 public class MessageActivity extends AppCompatActivity {
 
@@ -27,9 +22,9 @@ public class MessageActivity extends AppCompatActivity {
     private String tag = "MessageActivity";
     private Uri uri;
     private Cursor cursor;
-    private ArrayList<MessageModel> messageModels;
+//    private ArrayList<MessageModel> messageModels;
     private RecyclerView recyclerView;
-    private MessageAdapter messageAdapter;
+  //  private MessageAdapter messageAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

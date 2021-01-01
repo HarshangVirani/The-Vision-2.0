@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.Locale;
 
 
-public class SignOutAndExitActivity extends AppCompatActivity {
+public class  SignOutAndExitActivity extends AppCompatActivity {
 
     private Button logOutBtn,exitBtn;
     private String stringText;

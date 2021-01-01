@@ -1,14 +1,16 @@
-package com.example.thevision2.Study;
+package com.example.thevision2.Search;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
 import com.example.thevision2.R;
 
-public class StudyActivity extends AppCompatActivity {
+public class SearchMainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_study);
+        setContentView(R.layout.activity_search_main);
     }
 }

@@ -9,5 +9,6 @@
     <string name="study">STUDY</string>
     <string name="logout">LOGOUT</string>
     <string name="exit">EXIT</string>
+    <string name="text_recognition">TEXT RECOGNITION</string>
 
 </resources>

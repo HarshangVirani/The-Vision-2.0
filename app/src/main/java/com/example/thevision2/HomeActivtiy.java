@@ -1,7 +1,6 @@
 package com.example.thevision2;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,17 +9,14 @@ import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.example.thevision2.Battery.BatteryActivity;
 import com.example.thevision2.Messages.MessageActivity;
 import com.example.thevision2.Search.SearchActivity;
 import com.example.thevision2.Study.StudyActivity;
-import com.google.firebase.auth.FirebaseAuth;
 import com.pedromassango.doubleclick.DoubleClick;
 import com.pedromassango.doubleclick.DoubleClickListener;
-
 import java.util.Locale;
 
 public class HomeActivtiy extends AppCompatActivity {
@@ -34,13 +30,17 @@ public class HomeActivtiy extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_activtiy);
-        stringText = "Welcome User";
-        textToSpeech();
         intent = new Intent();
-
         changeStatusBarColor();
         setReference();
         setButton();
+    }
+
+    @Override
+    protected void onStart() {
+        stringText = "Welcome User";
+        textToSpeech();
+        super.onStart();
     }
 
     //change statusbar color
@@ -101,7 +101,7 @@ public class HomeActivtiy extends AppCompatActivity {
 
             @Override
             public void onDoubleClick(View view) {
-                startActivity(new Intent(HomeActivtiy.this, MessageActivity.class));
+              startActivity(new Intent(HomeActivtiy.this, MessageActivity.class));
             }
         }));
 
@@ -128,7 +128,7 @@ public class HomeActivtiy extends AppCompatActivity {
         search.setOnClickListener(new DoubleClick(new DoubleClickListener() {
             @Override
             public void onSingleClick(View view) {
-                stringText = "Search";
+                stringText = "Search and Other thing";
                 textToSpeech();
             }
 
@@ -156,8 +156,6 @@ public class HomeActivtiy extends AppCompatActivity {
     }
 
     //On go back
-
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();

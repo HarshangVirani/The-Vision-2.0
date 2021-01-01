@@ -1,7 +1,6 @@
 package com.example.thevision2.Battery;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -11,12 +10,9 @@ import android.os.BatteryManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.thevision2.R;
-
 import java.util.Locale;
 
 public class BatteryActivity extends AppCompatActivity  implements TextToSpeech.OnInitListener{
@@ -47,8 +43,8 @@ public class BatteryActivity extends AppCompatActivity  implements TextToSpeech.
         batteryImage = findViewById(R.id.battery_img);
 
     }
-   private  BroadcastReceiver mBatteryReceiver = new BroadcastReceiver() {
 
+    private  BroadcastReceiver mBatteryReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
 
