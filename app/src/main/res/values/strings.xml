@@ -10,5 +10,8 @@
     <string name="logout">LOGOUT</string>
     <string name="exit">EXIT</string>
     <string name="text_recognition">TEXT RECOGNITION</string>
+    <string name="mic">MIC</string>
+    <string name="title">TITLE</string>
+    <string name="description">DESCRIPTION</string>
 
 </resources>

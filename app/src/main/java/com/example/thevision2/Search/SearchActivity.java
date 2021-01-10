@@ -3,9 +3,12 @@ package com.example.thevision2.Search;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -43,8 +46,14 @@ public class SearchActivity extends AppCompatActivity {
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(SearchActivity.this,SearchMainActivity.class);
-                startActivity(intent);
+                if (isConnected()){
+                    intent = new Intent(SearchActivity.this,SearchMainActivity.class);
+                    startActivity(intent);
+                }else {
+                    stringText = "Please turn on internet";
+                    textToSpeech();
+                    Toast.makeText(getApplicationContext(),"No internet connection",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -52,7 +61,8 @@ public class SearchActivity extends AppCompatActivity {
         textRecogBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Text Recognition",Toast.LENGTH_SHORT).show();
+                intent = new Intent(SearchActivity.this, TextRecognition.class);
+                startActivity(intent);
             }
         });
     }
@@ -79,9 +89,25 @@ public class SearchActivity extends AppCompatActivity {
         }, 500);
     }
 
+    //Check Internet Connection
+    private boolean isConnected(){
+        boolean connected = false;
+        try {
+            ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+            connected = networkInfo !=null && networkInfo.isAvailable() && networkInfo.isConnected();
+            return connected;
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.d("Connection Exception",e.getMessage());
+        }
+        return connected;
+    }
+
     @Override
     protected void onPause() {
         tts.shutdown();
         super.onPause();
     }
+
 }

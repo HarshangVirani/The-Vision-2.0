@@ -31,7 +31,7 @@
                 android:textColor="@color/white"
                 android:gravity="start"
                 android:layout_gravity="center"
-                android:background="@color/lidht_blue"/>
+                android:background="@color/light_blue"/>
             <TextView
                 android:id="@+id/bodyMessage"
                 android:layout_width="match_parent"

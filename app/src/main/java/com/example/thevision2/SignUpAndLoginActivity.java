@@ -75,7 +75,7 @@ public class SignUpAndLoginActivity extends AppCompatActivity{
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(getResources().getColor(R.color.lidht_blue));
+            window.setStatusBarColor(getResources().getColor(R.color.light_blue));
         }
     }
 
@@ -153,6 +153,7 @@ public class SignUpAndLoginActivity extends AppCompatActivity{
         },3000);
     }
 
+    //Text to speech
     private void textToSpeech() {
         tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
@@ -175,6 +176,7 @@ public class SignUpAndLoginActivity extends AppCompatActivity{
         }, 500);
     }
 
+    //Speech to text
     private void speechToText() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
