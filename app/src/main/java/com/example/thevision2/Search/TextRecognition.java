@@ -33,7 +33,7 @@ public class TextRecognition extends AppCompatActivity {
     private final int RequestCameraPermissionID = 1000;
     private String tag = "TextRecognition";
     private TextToSpeech tts;
-    private String stringText;
+    private String stringText="";
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
