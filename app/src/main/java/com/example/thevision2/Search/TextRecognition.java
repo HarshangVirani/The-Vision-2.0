@@ -158,14 +158,18 @@ public class TextRecognition extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        tts.stop();
-        stringText.equals(null);
-
+        if (tts != null){
+            tts.stop();
+            tts.shutdown();
+        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        tts.shutdown();
+        if(tts != null){
+            tts.stop();
+            tts.shutdown();
+        }
     }
 }

@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:text="@string/search"
             android:layout_gravity="center"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:fontFamily="monospace"
             android:textColor="@color/white"/>
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:text="@string/text_recognition"
             android:layout_gravity="center"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:fontFamily="monospace"
             android:textColor="@color/white"/>

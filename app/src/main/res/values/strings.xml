@@ -13,5 +13,8 @@
     <string name="mic">MIC</string>
     <string name="title">TITLE</string>
     <string name="description">DESCRIPTION</string>
+    <string name="forgotpassword">FORGOT PASSWORD</string>
+    <string name="email_id">EMAIL ID</string>
+    <string name="password">PASSWORD</string>
 
 </resources>

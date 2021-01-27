@@ -35,7 +35,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class SignUpAndLoginActivity extends AppCompatActivity{
+public class    SignUpAndLoginActivity extends AppCompatActivity{
 
     //Define
     private Button login,signup;
