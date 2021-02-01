@@ -26,7 +26,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
     public MessageAdapter(Context context, List<SMSModel> smsList, RecyclerViewClickInterFace recyclerViewClickInterFace) {
         this.smsList = smsList;
-      //  this.recyclerViewClickInterFace = recyclerViewClickInterFace;
+        this.recyclerViewClickInterFace = recyclerViewClickInterFace;
         this.context = context;
     }
 
