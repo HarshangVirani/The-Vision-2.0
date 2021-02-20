@@ -7,9 +7,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.os.BatteryManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.thevision2.R;
@@ -31,10 +34,19 @@ public class BatteryActivity extends AppCompatActivity  implements TextToSpeech.
         this.registerReceiver(this.mBatteryReceiver,mIntentFilter);
         tts = new TextToSpeech(this, (TextToSpeech.OnInitListener) this);
 
-
+        changeStatusBarColor();
         setReference();
        // title = statusLabel.getText().toString() + percentageLabel.getText().toString();
 
+    }
+
+    //change statusbar color
+    private void changeStatusBarColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(R.color.nevi_light_blue));
+        }
     }
 
     public void setReference(){
@@ -119,6 +131,7 @@ public class BatteryActivity extends AppCompatActivity  implements TextToSpeech.
         tts.stop();
         super.onPause();
     }
+
 
     @Override
     protected void onDestroy() {

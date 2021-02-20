@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -32,8 +35,18 @@ public class SearchActivity extends AppCompatActivity {
         stringText = "Click Upper part of your screen for search and Down part of your screen for text recognition";
         textToSpeech();
 
+        changeStatusBarColor();
         setReference();
         setButton();
+    }
+
+    //change statusbar color
+    private void changeStatusBarColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(R.color.nevi_light_blue));
+        }
     }
 
     private void setReference() {
@@ -106,8 +119,16 @@ public class SearchActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        tts.shutdown();
+        if (tts != null){
+            tts.shutdown();
+        }
         super.onPause();
+    }
+
+    @Override
+    public void onRestart() {
+        textToSpeech();
+        super.onRestart();
     }
 
 }

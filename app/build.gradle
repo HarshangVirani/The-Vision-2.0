@@ -27,6 +27,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    ndkVersion '20.0.5594570'
 }
 
 dependencies {
@@ -44,6 +45,12 @@ dependencies {
     implementation 'com.littlemango:stacklayoutmanager:1.0.5'
     implementation 'org.jsoup:jsoup:1.13.1'
     implementation 'com.google.android.gms:play-services-vision:20.0.0'
+    implementation 'com.google.firebase:firebase-database'
+    implementation platform('com.google.firebase:firebase-bom:26.4.0')
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+    implementation 'com.itextpdf:itextg:5.5.10'
 
 
 }
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.android.application'

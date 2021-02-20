@@ -18,7 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity {
+public class    MainActivity extends AppCompatActivity {
 
     private ImageView logo;
     private TextView namePlate;
@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         checkPermission();
         setReference();
-        setSplashScreen();
         changeStatusBarColor();
     }
 
@@ -39,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         int contextCompat = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS);
         if (contextCompat == PackageManager.PERMISSION_GRANTED){
             Toast.makeText(getApplicationContext(),"PERMISSION_GRANTED",Toast.LENGTH_SHORT).show();
+            setSplashScreen();
         }else {
             ActivityCompat.requestPermissions(this,new String[]{(Manifest.permission.READ_SMS)},REQUEST_CODE);
             Log.d(tag,"Error in permission");
@@ -52,9 +52,11 @@ public class MainActivity extends AppCompatActivity {
             if (requestCode == REQUEST_CODE){
                 if (grantResults.length>=0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                     Toast.makeText(getApplicationContext(),"PERMISSION_GRANTED",Toast.LENGTH_SHORT).show();
+                    setSplashScreen();
                 }
             }else {
                 Toast.makeText(getApplicationContext(),"You do not have permission", Toast.LENGTH_SHORT).show();
+                setSplashScreen();
             }
         }
     }

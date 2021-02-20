@@ -31,11 +31,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthActionCodeException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class    SignUpAndLoginActivity extends AppCompatActivity{
+public class SignUpAndLoginActivity extends AppCompatActivity{
 
     //Define
     private Button login,signup;
@@ -50,6 +52,8 @@ public class    SignUpAndLoginActivity extends AppCompatActivity{
     private FirebaseAuth mAuth;
     private boolean wifi = false;
     private boolean mobilData = false;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,7 +154,7 @@ public class    SignUpAndLoginActivity extends AppCompatActivity{
             public void run() {
                 speechToText();
             }
-        },3000);
+        },7000);
     }
 
     //Text to speech
@@ -264,6 +268,7 @@ public class    SignUpAndLoginActivity extends AppCompatActivity{
                                         stringText = "Sign up successfully";
                                         textToSpeech();
                                         HandlerSignup();
+                                        SendDataToRealTimeDatabase(email,password);
                                     }
                                     else {
                                         if (task.getException() instanceof FirebaseAuthUserCollisionException){
@@ -296,6 +301,23 @@ public class    SignUpAndLoginActivity extends AppCompatActivity{
                 recreate();
             }
         }, 3000);
+    }
+
+    //Send data to firebase realtime database
+    private void SendDataToRealTimeDatabase(String email, String password){
+        try {
+            firebaseDatabase = FirebaseDatabase.getInstance();
+            databaseReference = firebaseDatabase.getReference("Students");
+            String id = databaseReference.push().getKey();
+
+            UserHelperClass userHelperClass = new UserHelperClass(email,password);
+
+            databaseReference.child(id).setValue(userHelperClass);
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override

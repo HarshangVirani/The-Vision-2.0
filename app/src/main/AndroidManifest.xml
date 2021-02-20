@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -32,9 +34,13 @@
             android:name=".HomeActivtiy"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".Messages.MessageActivity" />
+        <activity
+            android:name=".Messages.MessageActivity"
+            android:label="@string/message"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Battery.BatteryActivity"
+            android:label="@string/battery"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Search.SearchActivity"
@@ -44,7 +50,18 @@
             android:name=".Search.SearchMainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".Study.StudyActivity" />
+        <activity
+            android:name=".Study.StudyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".Study.Subject"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".Study.ChapterAndNotes"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".SignOutAndExitActivity"
             android:screenOrientation="portrait"
@@ -53,7 +70,18 @@
             android:name=".Search.TextRecognition"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-
+        <activity
+            android:name=".Study.FileList"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name=".Study.SixSevenSubject"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name=".Study.PdfFileDisplayActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="ocr" />

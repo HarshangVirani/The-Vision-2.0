@@ -9,10 +9,13 @@ import android.content.ContentResolver;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 import com.example.thevision2.Messages.Adapter.MessageAdapter;
 import com.example.thevision2.Messages.InterFace.RecyclerViewClickInterFace;
@@ -52,7 +55,17 @@ public class MessageActivity extends AppCompatActivity implements RecyclerViewCl
         adapter = new MessageAdapter(this,smsList,this);
         recyclerView.setAdapter(adapter);
 
+        changeStatusBarColor();
         checkPermission();
+    }
+
+    //change statusbar color
+    private void changeStatusBarColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(R.color.nevi_light_blue));
+        }
     }
 
     private void checkPermission(){
@@ -152,5 +165,11 @@ public class MessageActivity extends AppCompatActivity implements RecyclerViewCl
             tts.stop();
             tts.shutdown();
         }
+    }
+
+    @Override
+    public void onRestart() {
+        textToSpeech();
+        super.onRestart();
     }
 }

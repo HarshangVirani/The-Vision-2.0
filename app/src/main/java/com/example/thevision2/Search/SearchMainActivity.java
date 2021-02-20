@@ -6,12 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -53,10 +56,19 @@ public class SearchMainActivity extends AppCompatActivity {
         stringText = "Click bottom part of your screen for mic ";
         textToSpeech();
 
+        changeStatusBarColor();
         setReference();
         setButton();
     }
 
+    //change statusbar color
+    private void changeStatusBarColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(R.color.nevi_light_blue));
+        }
+    }
     @Override
     protected void onStart() {
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -98,7 +110,7 @@ public class SearchMainActivity extends AppCompatActivity {
                 public void run() {
                     speechToText();
                 }
-            },3000);
+            },10000);
         }
     }
 
@@ -195,6 +207,12 @@ public class SearchMainActivity extends AppCompatActivity {
             tts.shutdown();
         }
         super.onPause();
+    }
+
+    @Override
+    public void onRestart() {
+        textToSpeech();
+        super.onRestart();
     }
 
 }

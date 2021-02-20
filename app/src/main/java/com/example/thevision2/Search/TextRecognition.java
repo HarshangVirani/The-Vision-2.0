@@ -3,6 +3,7 @@ package com.example.thevision2.Search;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
@@ -10,6 +11,8 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -58,8 +61,18 @@ public class TextRecognition extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_recognition);
 
+        changeStatusBarColor();
         setReference();
         setTextRecognition();
+    }
+
+    //change statusbar color
+    private void changeStatusBarColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(R.color.nevi_light_blue));
+        }
     }
 
     private void setReference() {
@@ -155,21 +168,13 @@ public class TextRecognition extends AppCompatActivity {
         }, 500);
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        if (tts != null){
-            tts.stop();
-            tts.shutdown();
-        }
-    }
 
     @Override
     protected void onPause() {
-        super.onPause();
         if(tts != null){
             tts.stop();
             tts.shutdown();
         }
+        super.onPause();
     }
 }
