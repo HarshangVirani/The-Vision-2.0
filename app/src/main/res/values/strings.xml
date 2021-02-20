@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">The Vision</string>
+
+    <string name="login">LOGIN</string>
+    <string name="signup">SIGNUP</string>
+    <string name="message">MESSAGES</string>
+    <string name="battery">BATTERY STATUS</string>
+    <string name="search">SEARCH</string>
+    <string name="study">STUDY</string>
+    <string name="logout">LOGOUT</string>
+    <string name="exit">EXIT</string>
+    <string name="text_recognition">TEXT RECOGNITION</string>
+    <string name="mic">MIC</string>
+    <string name="title">TITLE</string>
+    <string name="description">DESCRIPTION</string>
+    <string name="forgotpassword">FORGOT PASSWORD</string>
+    <string name="email_id">EMAIL ID</string>
+    <string name="password">PASSWORD</string>
+    <string name="five">5th STANDARD</string>
+    <string name="six">6th STANDARD</string>
+    <string name="seven">7th STANDARD</string>
+    <string name="other">FOR OTHER STANDARD</string>
+    <string name="chapter">CHAPTERS</string>
+    <string name="notes">NOTES</string>
+    <string name="english">ENGLISH</string>
+    <string name="hindi">HINDI</string>
+    <string name="env">ENVIRONMENTAL STUDIES</string>
+    <string name="fv">5</string>
+    <string name="five_standard">5</string>
+    <string name="no_files">No Files</string>
+    <string name="subject">english</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="sst">Social Science</string>
+    <string name="science">Science</string>
+
+
+</resources>
